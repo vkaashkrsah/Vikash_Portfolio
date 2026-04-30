@@ -1,0 +1,20 @@
+name: Deploy to GoDaddy
+
+on:
+  push:
+    branches:
+      - main  # or master, whatever your branch is
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.yourdomain.com       # your GoDaddy FTP host
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./                    # your repo root
+          server-dir: /public_html/        # GoDaddy's web root
