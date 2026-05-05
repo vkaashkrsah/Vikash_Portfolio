@@ -1,5 +1,6 @@
 /* ─── script.js ─── */
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initLoader();
   initCursor();
   initParticles();
@@ -12,6 +13,36 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initCounters();
 });
+
+/* ══════════════════════════════════════════
+   THEME TOGGLE
+══════════════════════════════════════════ */
+function initThemeToggle() {
+  const themeBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  if (!themeBtn || !themeIcon) return;
+
+  const savedTheme = localStorage.getItem('site-theme');
+  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  const defaultTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+
+  applyTheme(defaultTheme);
+
+  themeBtn.addEventListener('click', () => {
+    const isLight = document.body.classList.contains('light-mode');
+    applyTheme(isLight ? 'dark' : 'light');
+  });
+
+  function applyTheme(theme) {
+    const isLight = theme === 'light';
+    document.body.classList.toggle('light-mode', isLight);
+    themeIcon.textContent = isLight ? '🌙' : '☀';
+    const nextModeLabel = isLight ? 'dark' : 'bright';
+    themeBtn.setAttribute('aria-label', `Switch to ${nextModeLabel} mode`);
+    themeBtn.setAttribute('title', `Switch to ${nextModeLabel} mode`);
+    localStorage.setItem('site-theme', theme);
+  }
+}
 
 /* ══════════════════════════════════════════
    LOADER

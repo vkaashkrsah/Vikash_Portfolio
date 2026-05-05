@@ -15,6 +15,20 @@
   --radius: 16px;
 }
 
+body.light-mode {
+  --bg: #f7fbff;
+  --bg2: #ecf4ff;
+  --blue: #0066cc;
+  --purple: #5b6ad6;
+  --cyan: #0a83ff;
+  --cerulean: #2b7de9;
+  --green: #00a36a;
+  --text: #0d1b2a;
+  --text2: #3f5871;
+  --glass: rgba(13, 27, 42, 0.04);
+  --glass-b: rgba(13, 27, 42, 0.12);
+}
+
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;cursor:none}
@@ -39,8 +53,9 @@ body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:52px;he
 #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 
 /* ── NAVBAR ──────────────────────────────── */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);background:rgba(7,11,24,.85);border-bottom:1px solid var(--glass-b);padding:.9rem 0;transition:box-shadow .3s}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);background:rgba(7,11,24,.85);border-bottom:1px solid var(--glass-b);padding:.9rem 0;transition:box-shadow .3s,background .3s}
 .navbar.scrolled{box-shadow:0 4px 32px rgba(0,198,255,.08)}
+body.light-mode .navbar{background:rgba(247,251,255,.92)}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.05em}
 .nav-menu{display:flex;list-style:none;gap:2rem}
@@ -48,6 +63,11 @@ body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:52px;he
 .nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--blue);transition:width .3s;border-radius:2px}
 .nav-link:hover,.nav-link.active{color:var(--blue)}
 .nav-link:hover::after,.nav-link.active::after{width:100%}
+.theme-toggle{display:inline-flex;align-items:center;gap:.45rem;background:var(--glass);color:var(--text);border:1px solid var(--glass-b);border-radius:999px;padding:.45rem .75rem;cursor:pointer;transition:all .25s;backdrop-filter:blur(12px)}
+.theme-toggle:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:0 10px 25px rgba(0,198,255,.16)}
+.theme-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.theme-logo{font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.04em;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.theme-icon{font-size:.95rem;line-height:1;display:inline-block;min-width:16px;text-align:center}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .hamburger span{width:25px;height:2px;background:var(--blue);border-radius:2px;transition:.3s}
 .hamburger.is-open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -97,6 +117,7 @@ body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:52px;he
 
 /* ── MARQUEE ─────────────────────────────── */
 .marquee-section{position:relative;z-index:1;padding:1.5rem 0;overflow:hidden;border-top:1px solid var(--glass-b);border-bottom:1px solid var(--glass-b);background:rgba(0,198,255,.03)}
+body.light-mode .marquee-section{background:rgba(43,125,233,.07)}
 .marquee-track{overflow:hidden;white-space:nowrap}
 .marquee-content{display:inline-flex;gap:2rem;animation:marquee-scroll 28s linear infinite;will-change:transform}
 .marquee-content span{color:var(--text2);font-size:.9rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase}
@@ -222,6 +243,7 @@ section{padding:100px 20px;position:relative;z-index:1}
 /* ── RESPONSIVE ──────────────────────────── */
 @media(max-width:968px){
   .nav-menu{position:fixed;left:-100%;top:68px;flex-direction:column;background:rgba(7,11,24,.98);width:100%;text-align:center;transition:.3s;padding:2rem 0;border-top:1px solid var(--glass-b);backdrop-filter:blur(20px);gap:0}
+  body.light-mode .nav-menu{background:rgba(247,251,255,.98)}
   .nav-menu li{padding:.7rem 0}
   .nav-menu.active{left:0}
   .hamburger{display:flex}
