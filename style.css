@@ -228,7 +228,7 @@ section{padding:100px 20px;position:relative;z-index:1}
 
 /* ── FOOTER ──────────────────────────────── */
 .footer{background:var(--bg2);border-top:1px solid var(--glass-b);padding:2.5rem 20px;text-align:center}
-.footer-logo{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.footer-logo{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
 .footer p{color:var(--text2);font-size:.88rem;margin:.3rem 0}
 .footer-name{font-weight:800;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
