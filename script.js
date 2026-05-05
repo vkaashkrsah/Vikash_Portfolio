@@ -19,12 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 ══════════════════════════════════════════ */
 function initThemeToggle() {
   const themeBtn = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  if (!themeBtn || !themeIcon) return;
+  const themeLabel = document.getElementById('theme-label');
+  if (!themeBtn || !themeLabel) return;
 
   const savedTheme = localStorage.getItem('site-theme');
-  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  const defaultTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+  const defaultTheme = savedTheme || 'dark';
 
   applyTheme(defaultTheme);
 
@@ -36,8 +35,8 @@ function initThemeToggle() {
   function applyTheme(theme) {
     const isLight = theme === 'light';
     document.body.classList.toggle('light-mode', isLight);
-    themeIcon.textContent = isLight ? '🌙' : '☀';
-    const nextModeLabel = isLight ? 'dark' : 'bright';
+    themeLabel.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+    const nextModeLabel = isLight ? 'dark' : 'light';
     themeBtn.setAttribute('aria-label', `Switch to ${nextModeLabel} mode`);
     themeBtn.setAttribute('title', `Switch to ${nextModeLabel} mode`);
     localStorage.setItem('site-theme', theme);

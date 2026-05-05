@@ -71,8 +71,7 @@ body.light-mode .navbar{background:rgba(247,251,255,.92)}
 .theme-toggle{display:inline-flex;align-items:center;gap:.45rem;background:var(--glass);color:var(--text);border:1px solid var(--glass-b);border-radius:999px;padding:.45rem .75rem;cursor:pointer;transition:all .25s;backdrop-filter:blur(12px)}
 .theme-toggle:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:0 10px 25px rgba(0,198,255,.16)}
 .theme-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.theme-logo{font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.04em;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.theme-icon{font-size:.95rem;line-height:1;display:inline-block;min-width:16px;text-align:center}
+.theme-label{font-size:.82rem;font-weight:700;letter-spacing:.02em;color:var(--text)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .hamburger span{width:25px;height:2px;background:var(--blue);border-radius:2px;transition:.3s}
 .hamburger.is-open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
