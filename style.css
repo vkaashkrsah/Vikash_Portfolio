@@ -52,7 +52,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .cursor-dot{position:fixed;width:8px;height:8px;background:var(--cursor-color);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:screen}
 .cursor-ring{position:fixed;width:36px;height:36px;border:2px solid var(--cursor-ring-color);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .18s ease,width .2s,height .2s,border-color .2s;mix-blend-mode:screen}
 body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:52px;height:52px;border-color:var(--purple)}
-body.light-mode .cursor-dot,body.light-mode .cursor-ring{mix-blend-mode:multiply}
+body.light-mode .cursor-dot,body.light-mode .cursor-ring{mix-blend-mode:darken}
 
 /* ── PARTICLE CANVAS ─────────────────────── */
 #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
